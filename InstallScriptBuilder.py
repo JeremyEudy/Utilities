@@ -1,6 +1,6 @@
 #Author: jeremy
 
-import getpass
+from subprocess import call
 
 print( "##########################################")
 print( "#                                        #")
@@ -18,6 +18,7 @@ if(root == 1):
 else:
     root = ""
 
+print("Dependencies:")
 print( "Which package managers are you going to use? (0 to finish choosing)")
 print("1 - apt")
 print("2 - homebrew")
@@ -66,5 +67,19 @@ for i in range(0, len(pkg_mngrs)):
             elif(pkg_mngrs[i] == 7):
                 f.write("{}dpkg -i {}\n".format(root, u_input))
 
-print("File saved as setup.sh")
+print("Commands:")
+print("Input commands to be appended to setup file: (0 to end; prepend sudo where necessary)")
+f.write("\n#----------\n")
+f.write("#Commands |\n")
+f.write("#----------\n\n")
+while(True):
+    u_input = str(input(">"))
+    if(u_input == "0"):
+        break
+    else:
+        f.write("{}".format(u_input))
+        f.write("\n")
+
 f.close()
+call(["chmod", "+x", "setup.sh"])
+print("File saved as setup.sh")
