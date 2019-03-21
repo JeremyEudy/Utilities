@@ -14,3 +14,7 @@ sed -e "16s/robbyrussel/fino/" ~/.zshrc
 clear
 source ~/.zshrc
 
+sudo apt install tweak
+sudo add-apt-repository ppa:noobslab/themes
+sudo apt-get update
+sudo apt-get install flatabulous-theme
