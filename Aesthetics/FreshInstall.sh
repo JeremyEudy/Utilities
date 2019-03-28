@@ -16,5 +16,13 @@ source ~/.zshrc
 
 sudo apt install tweak
 sudo add-apt-repository ppa:noobslab/themes
-sudo apt-get update
-sudo apt-get install flatabulous-theme
+sudo apt update
+sudo apt install flatabulous-theme
+
+mkdir ~/Git\ Clones/
+cd ~/Git\ Clones/
+
+git clone https://github.com/JeremyEudy/Utilities/
+git clone https://github.com/JeremyEudy/CLISearch/
+
+
