@@ -113,9 +113,6 @@ nnoremap <C-L> <C-W><C-L>
 set splitbelow
 set splitright
 
-" Remap file creation in :Explorer
-
-map f %
 
 nnoremap <space> za     " let space toggle folds
 
@@ -148,19 +145,19 @@ nnoremap <silent> <leader>[s :set background=dark<cr>:colorscheme solarized<cr>:
 nnoremap <silent> <leader>[x :set background=dark<cr>:colorscheme xoria256<cr>:AirlineRefresh<cr>
 " }}}
 
-" *templates* {{{
-if has("autocmd")
-    augroup templates
-        autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
-        autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
-        autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
-    augroup end
-endif
-" }}}
-
+" *DO THIS IF YOU ARE NEW*
+" *I have noticed a few glitches, though*
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
+" inoremap <Up> <NOP>
+" inoremap <Down> <NOP>
+" inoremap <Left> <NOP>
+" inoremap <Right> <NOP>
 "}}}
-" vim: foldmethod=marker
 
+" vim: foldmethod=marker
 set nocp
 execute pathogen#infect()
 execute pathogen#infect()
