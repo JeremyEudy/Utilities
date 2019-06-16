@@ -1,0 +1,2 @@
+# Keep connection alive (client side)
+ServerAliveInterval 120
