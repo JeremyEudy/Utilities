@@ -37,4 +37,7 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 echo "Installing glances..."
 sudo apt install glances -y
 
+echo "Installing powerline fonts..."
+sudo apt install fonts-powerline -y
+
 echo "Install complete!"
