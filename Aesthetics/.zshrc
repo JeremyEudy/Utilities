@@ -1,12 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-alias devtmux="bash ~/dev-tmux.sh"
-alias classmateDebug="python3 ~/Documents/Programming/Hackathons/StupidHack.git/ClassmateDebug.py"
-alias greatfox="ssh jeremy@greatfox.ddns.net"
-alias homefox="ssh jeremy@192.168.1.52"
 alias open="xdg-open"
-alias search="python3 ~/Documents/Programming/CLISearch/CLISearch.py"
+alias search="python3 ~/Git\ Clones/CLISearch/CLISearch.py"
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/jeremy/.oh-my-zsh"
@@ -14,9 +10,9 @@ alias search="python3 ~/Documents/Programming/CLISearch/CLISearch.py"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="fino"
+ZSH_THEME="fino"
 # ZSH_THEME="funky"
-ZSH_THEME="spaceship"
+# ZSH_THEME="spaceship"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -109,5 +105,3 @@ source $ZSH/oh-my-zsh.sh
 
 clear
 fortune | cowsay | lolcat
-export MAIL=jeremy@floridapoly.edu
-export MAIL=jeudy2552@floridapoly.edu
