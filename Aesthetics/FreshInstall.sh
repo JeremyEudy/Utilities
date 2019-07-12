@@ -1,28 +1,37 @@
 #!/usr/bin/env bash
 #Author: Jeremy Eudy
 
+echo "Installing ZShell and startup commands..."
 sudo apt update
-sudo apt install zsh
+sudo apt install zsh fortune cowsay lolcat -y
 sudo chsh -s /usr/local/bin/zsh
 
+echo "Installing Oh-My-ZSH..."
 git clone https://github.com/robbyrussell/oh-my-zsh
 
-sed -e "71s/git/git\n/"
-sed -e "72s//zsh-syntax-highlighting\n/"
-sed -e "73s//zsh-autosuggestinons/"
-sed -e "16s/robbyrussel/fino/" ~/.zshrc
-clear
-source ~/.zshrc
-
-sudo apt install tweak
-sudo add-apt-repository ppa:noobslab/themes
-sudo apt update
-sudo apt install flatabulous-theme
-
+echo "Configuring ZSH add-ons and cloning git repos..."
 mkdir ~/Git\ Clones/
 cd ~/Git\ Clones/
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
 
 git clone https://github.com/JeremyEudy/Utilities/
 git clone https://github.com/JeremyEudy/CLISearch/
 
+cp Utities/Aesthetics/.zshrc ~
+source ~/.zshrc
 
+echo "Configuring utilities..."
+mkdir -p ~/.ssh/
+cp Utilities/Aesthetics/.screenrc ~
+cp Utilities/SSH/config ~/.ssh
+cp -r Utilities/Vim\ Stuff/templates ~/.vim/
+cp Utilities/Vim\ Stuff/.vimrc ~
+cp Utilities/tmux\ Stuff/.tmux.conf ~
+
+echo "Installing glances..."
+sudo apt install glances -y
+
+echo "Install complete!"
