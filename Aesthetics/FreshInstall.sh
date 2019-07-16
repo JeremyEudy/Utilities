@@ -1,21 +1,28 @@
 #!/usr/bin/env bash
 #Author: Jeremy Eudy
 
-echo "Installing ZShell and startup commands..."
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing ZShell and startup commands...${NC}"
+echo "--------------------------------------------------------------------------------------"
 sudo apt update
 sudo apt install zsh fortune cowsay lolcat -y
 chsh -s /usr/bin/zsh
 
-echo "Installing Oh-My-ZSH..."
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing Oh-My-ZSH...${NC}"
+echo -e "${BLUE}(You'll need to type 'exit' into the new oh-my-zsh prompt)${NC}"
+echo "--------------------------------------------------------------------------------------"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-echo "Configuring ZSH add-ons and cloning git repos..."
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Cloning git repos...${NC}"
+echo "--------------------------------------------------------------------------------------"
 mkdir ~/Git\ Clones/
 cd ~/Git\ Clones/
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-
 
 git clone https://github.com/JeremyEudy/Utilities/
 git clone https://github.com/JeremyEudy/CLISearch/
@@ -23,7 +30,9 @@ git clone https://github.com/JeremyEudy/CLISearch/
 cp Utities/Aesthetics/.zshrc ~
 source ~/.zshrc
 
-echo "Configuring utilities..."
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Configuring utilities...${NC}"
+echo "--------------------------------------------------------------------------------------"
 mkdir -p ~/.ssh/
 cp Utilities/Aesthetics/.screenrc ~
 cp Utilities/SSH/config ~/.ssh
@@ -34,10 +43,23 @@ cp Utilities/tmux\ Stuff/.tmux.conf ~
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-echo "Installing glances..."
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing glances...${NC}"
+echo "--------------------------------------------------------------------------------------"
 sudo apt install glances -y
 
-echo "Installing powerline fonts..."
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing powerline fonts...${NC}"
+echo "--------------------------------------------------------------------------------------"
 sudo apt install fonts-powerline -y
 
-echo "Install complete!"
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Configuring ZSH plugins...${NC}"
+echo "--------------------------------------------------------------------------------------"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${GREEN}Install complete!${NC}"
+echo -e "${GREEN}If your .zshrc is not working appropriately, copy the one contained in Utilities/Aesthetics/.zshrc into ~${NC}"
+echo "--------------------------------------------------------------------------------------"
