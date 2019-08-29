@@ -14,8 +14,8 @@ echo "--------------------------------------------------------------------------
 echo -e "${BLUE}Installing Vim and Pathogen...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt install vim -y
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathoge.vim
+mkdir -p /home/$USER/.vim/autoload /home/$USER/.vim/bundle && \
+curl -LSso /home/$USER/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing ZShell...${NC}"
@@ -33,8 +33,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing CLI Search...${NC}"
 echo "--------------------------------------------------------------------------------------"
-mkdir ~/Git\ Clones/
-cd ~/Git\ Clones/
+mkdir /home/$USER/Git\ Clones/
+cd /home/$USER/Git\ Clones/
 
 git clone https://github.com/JeremyEudy/CLISearch/
 
@@ -42,15 +42,16 @@ git clone https://github.com/JeremyEudy/CLISearch/
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Configuring utilities...${NC}"
 echo "--------------------------------------------------------------------------------------"
-mkdir -p ~/.ssh/
-cp Utilities/Aesthetics/.screenrc ~
-cp Utilities/SSH/config ~/.ssh
-cp -r Utilities/Vim\ Stuff/templates ~/.vim/
-cp Utilities/Vim\ Stuff/.vimrc ~
-cp Utilities/tmux\ Stuff/.tmux.conf ~
+mkdir -p /home/$USER/.ssh/
+mkdir -p /home/$USER/.vim/templates
+cp Utilities/Aesthetics/.screenrc /home/$USER/
+cp Utilities/SSH/config /home/$USER/.ssh
+cp -r Utilities/Vim\ Stuff/templates /home/$USER/.vim/
+cp Utilities/Vim\ Stuff/.vimrc /home/$USER/
+cp Utilities/tmux\ Stuff/.tmux.conf /home/$USER/
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+mkdir -p /home/$USER/.vim/autoload /home/$USER/.vim/bundle && \
+    curl -LSso /home/$USER/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing glances...${NC}"
@@ -65,14 +66,14 @@ sudo apt install fonts-powerline -y
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Configuring ZSH plugins...${NC}"
 echo "--------------------------------------------------------------------------------------"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-/home/$USER/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Copying .zshrc...${NC}"
 echo "--------------------------------------------------------------------------------------"
-cp Utities/Aesthetics/.zshrc ~
-source ~/.zshrc
+cp Utities/Aesthetics/.zshrc /home/$USER
+source /home/$USER/.zshrc
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${GREEN}Install complete!${NC}"
