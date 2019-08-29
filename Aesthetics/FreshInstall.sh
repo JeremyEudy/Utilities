@@ -18,7 +18,7 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathoge.vim
 
 echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Installing ZShell and startup commands...${NC}"
+echo -e "${BLUE}Installing ZShell...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt update
 sudo apt install zsh fortune cowsay lolcat -y
@@ -31,16 +31,13 @@ echo "--------------------------------------------------------------------------
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
 echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Cloning git repos...${NC}"
+echo -e "${BLUE}Installing CLI Search...${NC}"
 echo "--------------------------------------------------------------------------------------"
 mkdir ~/Git\ Clones/
 cd ~/Git\ Clones/
 
-git clone https://github.com/JeremyEudy/Utilities/
 git clone https://github.com/JeremyEudy/CLISearch/
 
-cp Utities/Aesthetics/.zshrc ~
-source ~/.zshrc
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Configuring utilities...${NC}"
@@ -70,6 +67,12 @@ echo -e "${BLUE}Configuring ZSH plugins...${NC}"
 echo "--------------------------------------------------------------------------------------"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Copying .zshrc...${NC}"
+echo "--------------------------------------------------------------------------------------"
+cp Utities/Aesthetics/.zshrc ~
+source ~/.zshrc
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${GREEN}Install complete!${NC}"
