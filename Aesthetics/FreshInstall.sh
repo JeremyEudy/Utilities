@@ -43,12 +43,11 @@ echo "--------------------------------------------------------------------------
 echo -e "${BLUE}Configuring utilities...${NC}"
 echo "--------------------------------------------------------------------------------------"
 mkdir -p /home/$USER/.ssh/
-mkdir -p /home/$USER/.vim/templates
-cp Utilities/Aesthetics/.screenrc /home/$USER/
-cp Utilities/SSH/config /home/$USER/.ssh
-cp -r Utilities/Vim\ Stuff/templates /home/$USER/.vim/
-cp Utilities/Vim\ Stuff/.vimrc /home/$USER/
-cp Utilities/tmux\ Stuff/.tmux.conf /home/$USER/
+cp /home/$USER/Utilities/Aesthetics/.screenrc /home/$USER/
+cp /home/$USER/Utilities/SSH/config /home/$USER/.ssh
+cp -r /home/$USER/Utilities/Vim\ Stuff/templates /home/$USER/.vim/
+cp /home/$USER/Utilities/Vim\ Stuff/.vimrc /home/$USER/
+cp /home/$USER/Utilities/tmux\ Stuff/.tmux.conf /home/$USER/
 
 mkdir -p /home/$USER/.vim/autoload /home/$USER/.vim/bundle && \
     curl -LSso /home/$USER/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
@@ -72,7 +71,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Copying .zshrc...${NC}"
 echo "--------------------------------------------------------------------------------------"
-cp Utities/Aesthetics/.zshrc /home/$USER
+cp /home/$USER/Utilities/Aesthetics/.zshrc /home/$USER
 source /home/$USER/.zshrc
 
 echo "--------------------------------------------------------------------------------------"
