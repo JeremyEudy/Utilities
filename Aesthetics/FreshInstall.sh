@@ -6,6 +6,13 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing Vim and Pathogen...${NC}"
+echo "--------------------------------------------------------------------------------------"
+sudo apt install vim -y
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathoge.vim
+
+echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing ZShell and startup commands...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt update
