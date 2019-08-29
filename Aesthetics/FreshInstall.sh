@@ -73,5 +73,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${GREEN}Install complete!${NC}"
-echo -e "${GREEN}If your .zshrc is not working appropriately, copy the one contained in Utilities/Aesthetics/.zshrc into ~${NC}"
+echo -e "${GREEN}Press enter to restart...${NC}"
 echo "--------------------------------------------------------------------------------------"
+read
+shutdown -r now
