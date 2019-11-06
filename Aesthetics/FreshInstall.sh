@@ -26,7 +26,6 @@ chsh -s /usr/bin/zsh
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing Oh-My-ZSH...${NC}"
-echo -e "${BLUE}(You'll need to type 'exit' into the new oh-my-zsh prompt)${NC}"
 echo "--------------------------------------------------------------------------------------"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
