@@ -18,6 +18,12 @@ mkdir -p /home/$USER/.vim/autoload /home/$USER/.vim/bundle && \
 curl -LSso /home/$USER/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing tmux and .tmux.conf...${NC}"
+echo "--------------------------------------------------------------------------------------"
+sudo apt install tmux -y
+cp /home/$USER/Utilities/tmux\ Stuff/.tmux.conf /home/$USER/
+
+echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing ZShell...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt update
@@ -46,7 +52,6 @@ cp /home/$USER/Utilities/Aesthetics/.screenrc /home/$USER/
 cp /home/$USER/Utilities/SSH/config /home/$USER/.ssh
 cp -r /home/$USER/Utilities/Vim\ Stuff/templates /home/$USER/.vim/
 cp /home/$USER/Utilities/Vim\ Stuff/.vimrc /home/$USER/
-cp /home/$USER/Utilities/tmux\ Stuff/.tmux.conf /home/$USER/
 
 mkdir -p /home/$USER/.vim/autoload /home/$USER/.vim/bundle && \
     curl -LSso /home/$USER/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
