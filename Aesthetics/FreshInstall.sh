@@ -21,7 +21,14 @@ echo "--------------------------------------------------------------------------
 echo -e "${BLUE}Installing tmux and .tmux.conf...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt install tmux -y
-cp /home/$USER/Utilities/tmux\ Stuff/.tmux.conf /home/$USER/
+tmuxVersion=`tmux -V`
+tmuxVersion=${tmuxVersion:1}
+if (( $(echo "tmuxVersion >= 2.6" |bc -l) ))
+then
+    cp /home/$USER/Utilities/tmux\ Stuff/.tmux.conf-2.6 /home/$USER/.tmux.conf
+else
+    cp /home/$USER/Utilities/tmux\ Stuff/.tmux.conf /home/$USER/
+fi
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing ZShell...${NC}"
@@ -98,6 +105,7 @@ sudo apt update
 sudo apt install pop-theme -y
 sudo apt install pop-icon-theme -y
 sudo apt install gnome-tweak-tool -y
+
 echo "--------------------------------------------------------------------------------------"
 echo -e "${GREEN}To swap themes, open up the gnome tweak tool and change the theme and icons to Pop${NC}"
 echo "--------------------------------------------------------------------------------------"
@@ -106,5 +114,6 @@ echo "--------------------------------------------------------------------------
 echo -e "${GREEN}Install complete!${NC}"
 echo -e "${GREEN}Press enter to restart...${NC}"
 echo "--------------------------------------------------------------------------------------"
+
 read
 shutdown -r now
