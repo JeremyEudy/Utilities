@@ -73,10 +73,35 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-/home/$USER/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing Spaceship theme for ZSH...${NC}"
+echo "--------------------------------------------------------------------------------------"
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+sed -i -e 's/NEWLINE=true/NEWLINE=false/g' /home/$USER/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh
+
+echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Copying .zshrc...${NC}"
 echo "--------------------------------------------------------------------------------------"
 cp /home/$USER/Utilities/Aesthetics/.zshrc /home/$USER
 source /home/$USER/.zshrc
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Creating Xmodmap rule to make Caps Lock Escape...${NC}"
+echo "--------------------------------------------------------------------------------------"
+cp /home/$USER/Utilities/Helper/.Xmodmap/ /home/$USER
+xmodmap ~/.Xmodmap
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Adding System76 PopOS theme, icons, and Gnome tweak tool...${NC}"
+echo "--------------------------------------------------------------------------------------"
+sudo add-apt-repository ppa:system76/pop -y
+sudo apt update
+sudo apt install pop-theme -y
+sudo apt install pop-icon-theme -y
+sudo apt install gnome-tweak-tool -y
+echo "--------------------------------------------------------------------------------------"
+echo -e "${GREEN}To swap themes, open up the gnome tweak tool and change the theme and icons to Pop${NC}"
+echo "--------------------------------------------------------------------------------------"
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${GREEN}Install complete!${NC}"
