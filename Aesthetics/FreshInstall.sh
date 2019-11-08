@@ -43,7 +43,6 @@ cd /home/$USER/Git\ Clones/
 
 git clone https://github.com/JeremyEudy/CLISearch/
 
-
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Configuring utilities...${NC}"
 echo "--------------------------------------------------------------------------------------"
