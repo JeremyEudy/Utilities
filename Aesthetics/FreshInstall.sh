@@ -5,6 +5,15 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
+if [ ! -d "/home/$USER/Utilities" ]; then
+    echo "--------------------------------------------------------------------------------------"
+    echo -e "${BLUE}Please make sure Utilities/ is in your home directory...${NC}"
+    echo "--------------------------------------------------------------------------------------"
+    read
+    exit 1
+fi
+
+
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing curl...${NC}"
 echo "--------------------------------------------------------------------------------------"
@@ -95,7 +104,7 @@ echo "--------------------------------------------------------------------------
 echo -e "${BLUE}Creating Xmodmap rule to make Caps Lock Escape...${NC}"
 echo "--------------------------------------------------------------------------------------"
 cp /home/$USER/Utilities/Helper/.Xmodmap/ /home/$USER
-xmodmap ~/.Xmodmap
+xmodmap /home/$USER/.Xmodmap
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Adding System76 PopOS theme, icons, and Gnome tweak tool...${NC}"
