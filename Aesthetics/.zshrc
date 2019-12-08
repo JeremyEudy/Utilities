@@ -10,9 +10,9 @@ alias search="python3 ~/Git\ Clones/CLISearch/CLISearch.py"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="fino"
+# ZSH_THEME="fino"
 # ZSH_THEME="funky"
-# ZSH_THEME="spaceship"
+ZSH_THEME="spaceship"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -102,6 +102,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+xmodmap ~/.Xmodmap
 
 clear
 fortune | cowsay | lolcat
