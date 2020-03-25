@@ -114,7 +114,7 @@ source /home/$USER/.zshrc
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Creating Xmodmap rule to make Caps Lock Escape...${NC}"
 echo "--------------------------------------------------------------------------------------"
-cp /home/$USER/Utilities/Helper/.Xmodmap/ /home/$USER
+cp /home/$USER/Utilities/Helper/.Xmodmap /home/$USER
 xmodmap /home/$USER/.Xmodmap
 
 echo "--------------------------------------------------------------------------------------"
