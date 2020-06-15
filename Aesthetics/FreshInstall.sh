@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    FreshInstall.sh                                  |     ___________ | J    #
+#    FreshInstall.sh                                    |     ____  |  P       #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:18:57 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2019/12/07 20:18:59 by jeremy           |                 | Y    #
+#    Updated: 2020/06/15 09:59:30 by jeremy             |           |  s       #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -15,15 +15,6 @@
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
-
-if [ ! -d "/home/$USER/Utilities" ]; then
-    echo "--------------------------------------------------------------------------------------"
-    echo -e "${BLUE}Please make sure Utilities/ is in your home directory...${NC}"
-    echo "--------------------------------------------------------------------------------------"
-    read
-    exit 1
-fi
-
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing curl...${NC}"
@@ -69,6 +60,7 @@ mkdir /home/$USER/Git\ Clones/
 cd /home/$USER/Git\ Clones/
 
 git clone https://github.com/JeremyEudy/CLISearch/
+sudo cp CLISearch/CLISearch.py /usr/bin/search
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Configuring utilities...${NC}"
@@ -86,6 +78,11 @@ echo "--------------------------------------------------------------------------
 echo -e "${BLUE}Installing glances...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt install glances -y
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing Markdown Viewer...${NC}"
+echo "--------------------------------------------------------------------------------------"
+sudo -H python3 -m pip install mdv
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing powerline fonts...${NC}"
@@ -110,6 +107,16 @@ echo -e "${BLUE}Copying .zshrc...${NC}"
 echo "--------------------------------------------------------------------------------------"
 cp /home/$USER/Utilities/Aesthetics/.zshrc /home/$USER
 source /home/$USER/.zshrc
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Would you like to install the dircolors-solarized repository?...${NC}"
+echo "--------------------------------------------------------------------------------------"
+read -p "[Y\n]"
+if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
+    echo -e "${BLUE}Skipping installation...${NC}"
+else
+    git clone https://github.com/seebi/dircolors-solarized /home/$USER/Git\ Clones/dircolors-solarized
+    echo 'eval `dircolors /home/$USER/Git\ Clones/dircolors-solarized/dircolors.256dark`' >> /home/$USER/.zshrc
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Creating Xmodmap rule to make Caps Lock Escape...${NC}"

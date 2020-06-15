@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    .zshrc                                           |     ___________ | J    #
+#    .zshrc                                             |     ____  |  P       #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:21:19 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2019/12/07 20:21:20 by jeremy           |                 | Y    #
+#    Updated: 2020/06/15 10:00:06 by jeremy             |           |  s       #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -15,7 +15,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 alias open="xdg-open"
-alias search="python3 ~/Git\ Clones/CLISearch/CLISearch.py"
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/$USER/.oh-my-zsh"
