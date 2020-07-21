@@ -131,6 +131,7 @@ sudo add-apt-repository ppa:system76/pop -y
 sudo apt update
 sudo apt install pop-theme -y
 sudo apt install pop-icon-theme -y
+sudo add-apt-repository universe
 sudo apt install gnome-tweak-tool -y
 
 echo "--------------------------------------------------------------------------------------"
