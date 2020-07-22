@@ -109,16 +109,6 @@ cp /home/$USER/Utilities/Aesthetics/.zshrc /home/$USER
 source /home/$USER/.zshrc
 
 echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Would you like to install the dircolors-solarized repository?...${NC}"
-echo "--------------------------------------------------------------------------------------"
-read -p "[Y\n]"
-if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
-    echo -e "${BLUE}Skipping installation...${NC}"
-else
-    git clone https://github.com/seebi/dircolors-solarized /home/$USER/Git\ Clones/dircolors-solarized
-    echo 'eval `dircolors /home/$USER/Git\ Clones/dircolors-solarized/dircolors.256dark`' >> /home/$USER/.zshrc
-
-echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Creating Xmodmap rule to make Caps Lock Escape...${NC}"
 echo "--------------------------------------------------------------------------------------"
 cp /home/$USER/Utilities/Helper/.Xmodmap /home/$USER
@@ -134,6 +124,16 @@ sudo apt install pop-icon-theme -y
 sudo add-apt-repository universe
 sudo apt install gnome-tweak-tool -y
 
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Would you like to install the dircolors-solarized repository?...${NC}"
+echo "--------------------------------------------------------------------------------------"
+read -p "[Y\n]"
+if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
+    echo -e "${BLUE}Skipping installation...${NC}"
+else
+    git clone https://github.com/seebi/dircolors-solarized /home/$USER/Git\ Clones/dircolors-solarized
+    echo 'eval `dircolors /home/$USER/Git\ Clones/dircolors-solarized/dircolors.256dark`' >> /home/$USER/.zshrc
+    
 echo "--------------------------------------------------------------------------------------"
 echo -e "${GREEN}To swap themes, open up the gnome tweak tool and change the theme and icons to Pop${NC}"
 echo "--------------------------------------------------------------------------------------"
