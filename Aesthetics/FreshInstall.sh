@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    FreshInstall.sh                                    |     ____  |  P       #
+#    FreshInstall.sh                                  |     ___________ | J    #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:18:57 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2020/06/15 09:59:30 by jeremy             |           |  s       #
+#    Updated: 2020/10/23 23:09:57 by jeremy           |                 | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -33,10 +33,11 @@ echo -e "${BLUE}Installing tmux and .tmux.conf...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt install tmux -y
 tmuxVersion=`tmux -V`
-tmuxVersion=${tmuxVersion:1}
-if (( $(echo "tmuxVersion >= 2.6" |bc -l) ))
+tmuxVersion=${tmuxVersion:4}
+
+if [ $tmuxVersion = "3.0a" ]
 then
-    cp /home/$USER/Utilities/tmux\ Stuff/.tmux.conf-2.6 /home/$USER/.tmux.conf
+    cp /home/$USER/Utilities/tmux\ Stuff/.tmux.conf-3.0a /home/$USER/
 else
     cp /home/$USER/Utilities/tmux\ Stuff/.tmux.conf /home/$USER/
 fi
@@ -73,6 +74,8 @@ cp /home/$USER/Utilities/Vim\ Stuff/.vimrc /home/$USER/
 
 mkdir -p /home/$USER/.vim/autoload /home/$USER/.vim/bundle && \
     curl -LSso /home/$USER/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+mkdir -p /home/$USER/.vim/plugin
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing glances...${NC}"
@@ -115,28 +118,38 @@ cp /home/$USER/Utilities/Helper/.Xmodmap /home/$USER
 xmodmap /home/$USER/.Xmodmap
 
 echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Adding System76 PopOS theme, icons, and Gnome tweak tool...${NC}"
+echo -e "${BLUE}Adding Gnome tweak tool...${NC}"
 echo "--------------------------------------------------------------------------------------"
-sudo add-apt-repository ppa:system76/pop -y
-sudo apt update
-sudo apt install pop-theme -y
-sudo apt install pop-icon-theme -y
 sudo add-apt-repository universe
 sudo apt install gnome-tweak-tool -y
 
 echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Would you like to install the dircolors-solarized repository?...${NC}"
+echo -e "${BLUE}Would you like to install the dircolors-solarized repository?${NC}"
 echo "--------------------------------------------------------------------------------------"
-read -p "[Y\n]"
+read -p "[Y/n]"
 if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
     echo -e "${BLUE}Skipping installation...${NC}"
 else
     git clone https://github.com/seebi/dircolors-solarized /home/$USER/Git\ Clones/dircolors-solarized
     echo 'eval `dircolors /home/$USER/Git\ Clones/dircolors-solarized/dircolors.256dark`' >> /home/$USER/.zshrc
-    
+
 echo "--------------------------------------------------------------------------------------"
-echo -e "${GREEN}To swap themes, open up the gnome tweak tool and change the theme and icons to Pop${NC}"
+echo -e "${BLUE}Would you like to install Discord?${NC}"
 echo "--------------------------------------------------------------------------------------"
+read -p "[Y/n]"
+if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
+    echo -e "${BLUE}Skipping installation...${NC}"
+else
+    sudo snap install discord
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Would you like to install Spotify?${NC}"
+echo "--------------------------------------------------------------------------------------"
+read -p "[Y/n]"
+if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
+    echo -e "${BLUE}Skipping installation...${NC}"
+else
+    sudo snap install spotify
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${GREEN}Install complete!${NC}"
