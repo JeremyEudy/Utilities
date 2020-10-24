@@ -132,6 +132,7 @@ if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
 else
     git clone https://github.com/seebi/dircolors-solarized /home/$USER/Git\ Clones/dircolors-solarized
     echo 'eval `dircolors /home/$USER/Git\ Clones/dircolors-solarized/dircolors.256dark`' >> /home/$USER/.zshrc
+fi
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Would you like to install Discord?${NC}"
@@ -141,6 +142,7 @@ if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
     echo -e "${BLUE}Skipping installation...${NC}"
 else
     sudo snap install discord
+fi
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Would you like to install Spotify?${NC}"
@@ -150,6 +152,7 @@ if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
     echo -e "${BLUE}Skipping installation...${NC}"
 else
     sudo snap install spotify
+fi
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${GREEN}Install complete!${NC}"
