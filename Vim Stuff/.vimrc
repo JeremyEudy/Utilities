@@ -154,6 +154,7 @@ if has("autocmd")
         autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
         autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
         autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
+        autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
     augroup end
 endif
 " }}}
