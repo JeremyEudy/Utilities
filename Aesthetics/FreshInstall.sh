@@ -61,7 +61,6 @@ mkdir /home/$USER/Git\ Clones/
 cd /home/$USER/Git\ Clones/
 
 git clone https://github.com/JeremyEudy/CLISearch/
-sudo cp CLISearch/CLISearch.py /usr/bin/search
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Configuring utilities...${NC}"
@@ -76,6 +75,11 @@ mkdir -p /home/$USER/.vim/autoload /home/$USER/.vim/bundle && \
     curl -LSso /home/$USER/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 mkdir -p /home/$USER/.vim/plugin
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing pip...${NC}"
+echo "--------------------------------------------------------------------------------------"
+sudo apt install python3-pip -y
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing glances...${NC}"
@@ -97,13 +101,6 @@ echo -e "${BLUE}Configuring ZSH plugins...${NC}"
 echo "--------------------------------------------------------------------------------------"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-/home/$USER/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-/home/$USER/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Installing Spaceship theme for ZSH...${NC}"
-echo "--------------------------------------------------------------------------------------"
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-sed -i -e 's/NEWLINE=true/NEWLINE=false/g' /home/$USER/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Copying .zshrc...${NC}"
@@ -132,6 +129,16 @@ if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
 else
     git clone https://github.com/seebi/dircolors-solarized /home/$USER/Git\ Clones/dircolors-solarized
     echo 'eval `dircolors /home/$USER/Git\ Clones/dircolors-solarized/dircolors.256dark`' >> /home/$USER/.zshrc
+fi
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Would you like to install Fira Code fonts?${NC}"
+echo "--------------------------------------------------------------------------------------"
+read -p "[Y/n]"
+if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
+    echo -e "${BLUE}Skipping installation...${NC}"
+else
+    sudo apt install fonts-firacode -y
 fi
 
 echo "--------------------------------------------------------------------------------------"

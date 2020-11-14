@@ -15,6 +15,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 alias open="xdg-open"
+alias search="python3 ~/Git Clones/CLISearch/CLISearch.py"
+alias python="python3"
+alias pip="pip3"
+alias extip="curl -s 4.ipquail.com/ip"
+alias temp="watch -n 2 sensors"
+alias monitor="bash ~/.monitor.sh"
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/$USER/.oh-my-zsh"
