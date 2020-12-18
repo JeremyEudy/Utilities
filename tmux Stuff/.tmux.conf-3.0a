@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    .tmux.conf                                       |     ___________ | J    #
+#    .tmux.conf                                     |     ______  _____ | J    #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:21:07 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2020/10/22 20:05:23 by jeremy           |                 | Y    #
+#    Updated: 2020/12/18 15:37:55 by jeremy         |                   | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -45,6 +45,7 @@ bind -n M-p paste-buffer
 unbind '"'
 unbind %
 bind -n M-\\ split-window -h
+bind -n M-| split-window -h
 bind -n M-- split-window -v
 bind | split-window -h
 bind - split-window -v
@@ -62,7 +63,7 @@ bind -n M-j select-pane -D
 set -g mouse on
 
 # Window Controls
-bind -n M-k kill-pane
+bind k kill-pane
 bind l kill-session
 bind < resize-pane -L 1
 bind > resize-pane -R 1

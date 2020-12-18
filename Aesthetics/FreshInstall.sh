@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    FreshInstall.sh                                  |     ___________ | J    #
+#    FreshInstall.sh                                |     ______  _____ | J    #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:18:57 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2020/10/23 23:09:57 by jeremy           |                 | Y    #
+#    Updated: 2020/11/21 13:19:31 by jeremy         |                   | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -57,8 +57,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing CLI Search...${NC}"
 echo "--------------------------------------------------------------------------------------"
-mkdir /home/$USER/Git\ Clones/
-cd /home/$USER/Git\ Clones/
+mkdir /home/$USER/Git-Clones/
+cd /home/$USER/Git-Clones/
 
 git clone https://github.com/JeremyEudy/CLISearch/
 
@@ -127,8 +127,8 @@ read -p "[Y/n]"
 if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
     echo -e "${BLUE}Skipping installation...${NC}"
 else
-    git clone https://github.com/seebi/dircolors-solarized /home/$USER/Git\ Clones/dircolors-solarized
-    echo 'eval `dircolors /home/$USER/Git\ Clones/dircolors-solarized/dircolors.256dark`' >> /home/$USER/.zshrc
+    git clone https://github.com/seebi/dircolors-solarized /home/$USER/Git-Clones/dircolors-solarized
+    echo 'eval `dircolors /home/$USER/Git-Clones/dircolors-solarized/dircolors.256dark`' >> /home/$USER/.zshrc
 fi
 
 echo "--------------------------------------------------------------------------------------"
