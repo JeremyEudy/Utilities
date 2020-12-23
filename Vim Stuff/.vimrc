@@ -84,6 +84,8 @@ set indentkeys-=0#              " do not break indent on #
 set cinoptions=:s,ps,ts,cs      " how cindent re-indents a line
 set cinwords=if,else,while,do
 set cinwords+=for,switch,case   " words that cause indent on next line
+set formatoptions=cro           " continue comment on new line
+set pastetoggle=<F3>            " toggle paste mode with F3
 " }}}
 
 " *general* {{{
