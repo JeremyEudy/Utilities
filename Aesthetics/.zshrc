@@ -6,7 +6,7 @@
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:21:19 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2020/06/15 10:00:06 by jeremy             |           |  s       #
+#    Updated: 2021/03/11 11:26:38 by jeremy             |           |  s       #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -56,7 +56,7 @@ ZSH_THEME="fino"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
