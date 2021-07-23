@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    .zshrc                                             |     ____  |  P       #
+#    .zshrc                                         |     ______  _____ | J    #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:21:19 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2021/03/11 11:26:38 by jeremy             |           |  s       #
+#    Updated: 2021/07/23 08:57:46 by jeremy         |                   | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -121,7 +121,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-xmodmap ~/.Xmodmap
+if [ -n "${DISPLAY+x}" ]; then
+    xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+    xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+fi
 
 clear
 fortune | cowsay | lolcat
