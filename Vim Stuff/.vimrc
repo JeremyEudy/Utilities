@@ -88,6 +88,14 @@ set formatoptions=cro           " continue comment on new line
 set pastetoggle=<F3>            " toggle paste mode with F3
 " }}}
 
+" *aliases* {{{
+cnoreabbrev NERTRee tree
+" }}}
+
+" *line formatting* {{{
+" set textwidth=80
+" }}}
+
 " *general* {{{
 set virtualedit=block   " doesn't constrain visual block
 
@@ -161,7 +169,6 @@ if has("autocmd")
 endif
 " }}}
 
-"}}}
 " vim: foldmethod=marker
 
 set nocp
