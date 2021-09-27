@@ -89,7 +89,7 @@ set pastetoggle=<F3>            " toggle paste mode with F3
 " }}}
 
 " *aliases* {{{
-cnoreabbrev NERTRee tree
+cnoreabbrev tree NERDTree
 " }}}
 
 " *line formatting* {{{
