@@ -71,11 +71,13 @@ set hlsearch            " highlight all matches
 " }}}
 
 " *indentation* {{{
+
+" Default
 set autoindent                  " automatically indent
 set cindent                     " c-style indentation
 set smartindent                 " c-like indentation on new line
 
-set shiftwidth=4                " number of spaces to auto-indent with cindent, <<, >>, etc
+set shiftwidth=0                " number of spaces to auto-indent with cindent, <<, >>, etc
 set softtabstop=4               " make spaces feel like tabs (i.e. <BS> deletes to last tabstop)
 set tabstop=4                   " number of spaces tab inserts
 set expandtab                   " use spaces rather than tabs
@@ -86,6 +88,10 @@ set cinwords=if,else,while,do
 set cinwords+=for,switch,case   " words that cause indent on next line
 set formatoptions=cro           " continue comment on new line
 set pastetoggle=<F3>            " toggle paste mode with F3
+
+" Custom filetype settings
+autocmd Filetype yaml setlocal tabstop=2 softtabstop=2 expandtab " use 2 spaces on YAMLs
+
 " }}}
 
 " *aliases* {{{
