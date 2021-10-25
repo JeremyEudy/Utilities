@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    .zshrc                                         |     ______  _____ | J    #
+#    .zshrc                                           |     ___________ | J    #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:21:19 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2021/07/23 08:57:46 by jeremy         |                   | Y    #
+#    Updated: 2021/10/25 00:34:23 by jeremy           |                 | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -21,6 +21,7 @@ alias pip="pip3"
 alias extip="curl -s 4.ipquail.com/ip"
 alias temp="watch -n 2 sensors"
 alias monitor="bash ~/.monitor.sh"
+alias pyenv="source venv/bin/activate"
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/$USER/.oh-my-zsh"
@@ -28,9 +29,10 @@ alias monitor="bash ~/.monitor.sh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="fino"
+# ZSH_THEME="fino"
 # ZSH_THEME="funky"
 # ZSH_THEME="spaceship"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -120,11 +122,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-if [ -n "${DISPLAY+x}" ]; then
-    xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
-    xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-fi
 
 clear
 fortune | cowsay | lolcat

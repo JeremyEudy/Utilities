@@ -6,7 +6,7 @@
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:18:57 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2021/09/25 23:14:04 by jeremy           |                 | Y    #
+#    Updated: 2021/10/25 00:33:47 by jeremy           |                 | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -91,7 +91,7 @@ sudo apt install zsh fortune cowsay lolcat -y
 chsh -s /usr/bin/zsh
 
 echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Installing Oh-My-ZSH...${NC}"
+echo -e "${BLUE}Installing oh-my-zsh...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
@@ -119,6 +119,11 @@ echo "--------------------------------------------------------------------------
 sudo -H python3 -m pip install mdv
 
 echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing jq...${NC}"
+echo "--------------------------------------------------------------------------------------"
+sudo apt install jq -y
+
+echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing powerline fonts...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt install fonts-powerline -y
@@ -128,6 +133,11 @@ echo -e "${BLUE}Configuring ZSH plugins...${NC}"
 echo "--------------------------------------------------------------------------------------"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing powerlevel10k for oh-my-zsh...${NC}"
+echo "--------------------------------------------------------------------------------------"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Copying .zshrc...${NC}"
