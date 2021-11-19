@@ -6,7 +6,7 @@
 "    By: cshepard6055 <cshepard6055@floridapoly.edu>    |  \`-\   \ |  o       "
 "                                                       |---\  \   `|  l       "
 "    Created: 2017/09/04 12:42:13 by cshepard6055       | ` .\  \   |  y       "
-"    Updated: 2019/12/07 20:13:46 by jeremy           |                 | Y    "
+"    Updated: 2021/11/19 10:36:25 by jeremy           |                 | Y    "
 "                                                                              "
 " **************************************************************************** "
 " Credit goes to Caleb Shepard for initial template
@@ -98,7 +98,7 @@ endfunction
 function! s:user()
 	let l:user = $USER
 	if strlen(l:user) == 0
-		let l:user = "student"
+		let l:user = "plexus"
 	endif
 	return l:user
 endfunction
@@ -106,7 +106,7 @@ endfunction
 function! s:mail()
 	let l:mail = $MAIL
 	if strlen(l:mail) == 0
-		let l:mail = "allstudents@floridapoly.edu"
+		let l:mail = "helpdesk@plextech.net"
 	endif
 	return l:mail
 endfunction

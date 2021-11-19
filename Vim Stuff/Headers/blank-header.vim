@@ -3,10 +3,10 @@
 "                                                     -------------------      "
 "    blank-header.vim                                 |     ___________ | J    "
 "                                                     |    / ____/ ___/ | E    "
-"    By: jeremy <allstudents@floridapoly.edu>         |   / /_   \__ \  | R    "
+"    By: caleb <cshepard6055@floridapoly.edu>         |   / /_   \__ \  | R    "
 "                                                     |  / __/  ___/ /  | E    "
 "    Created: 2017/09/04 12:42:13 by cshepard6055     | /_/    /____/   | M    "
-"    Updated: 2021/09/25 22:51:40 by jeremy           |                 | Y    "
+"    Updated: 2021/11/19 10:38:32 by jeremy           |                 | Y    "
 "                                                     -------------------      "
 "                                                                              "
 " **************************************************************************** "
@@ -102,7 +102,7 @@ endfunction
 function! s:user()
 	let l:user = $USER
 	if strlen(l:user) == 0
-		let l:user = "student"
+		let l:user = "user"
 	endif
 	return l:user
 endfunction
@@ -110,7 +110,7 @@ endfunction
 function! s:mail()
 	let l:mail = $MAIL
 	if strlen(l:mail) == 0
-		let l:mail = "allstudents@floridapoly.edu"
+		let l:mail = "Set $MAIL for your shell"
 	endif
 	return l:mail
 endfunction

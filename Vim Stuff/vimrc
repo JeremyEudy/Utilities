@@ -194,5 +194,15 @@ endif
 " }}}
 
 " *plugins* {{{
+filetype off
+
 execute pathogen#infect()
+execute pathogen#helptags()
+
+filetype plugin indent on
+syntax on
+
+" PymodeLint settings
+let pymode_lint_ignore=["E501"]
+nnoremap <leader>c :PymodeLint<CR>
 " }}}

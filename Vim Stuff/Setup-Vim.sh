@@ -1,3 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                     -------------------      #
+#    Setup-Vim.sh                                     |     ___________ | J    #
+#                                                     |    / ____/ ___/ | E    #
+#    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
+#                                                     |  / __/  ___/ /  | E    #
+#    Created: 2021/11/19 10:37:34 by jeremy           | /_/    /____/   | M    #
+#    Updated: 2021/11/19 10:42:53 by jeremy           |                 | Y    #
+#                                                     -------------------      #
+#                                                                              #
+# **************************************************************************** #
+
 #!/usr/bin/env bash
 
 GREEN='\033[0;32m'
@@ -19,7 +32,7 @@ mkdir -p $VIMDIR/colors
 mkdir -p $VIMDIR/bundle
 
 cp -r $HOME/Utilities/Vim\ Stuff/templates $VIMDIR/
-cp $HOME/Utilities/Vim\ Stuff/.vimrc $HOME/
+cp $HOME/Utilities/Vim\ Stuff/vimrc $HOME/.vimrc
 
 mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
     curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
@@ -27,7 +40,9 @@ mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing powerline fonts...${NC}"
 echo "--------------------------------------------------------------------------------------"
-git clone https://github.com/powerline/fonts powerline-fonts && bash powerline-fonts/install.sh
+git clone https://github.com/powerline/fonts powerline-fonts && \
+    bash powerline-fonts/install.sh && \
+    rm -rf powerline-fonts
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing Vim plugins...${NC}"

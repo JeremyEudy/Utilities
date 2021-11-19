@@ -1,12 +1,12 @@
 " **************************************************************************** "
 "                                                                              "
 "                                                             |\               "
-"    personal-header.vim                              |     ___________ | J    "
+"    server-header.vim                                |     ___________ | J    "
 "                                                       |    \`  \  |  p       "
 "    By: cshepard6055 <cshepard6055@floridapoly.edu>    |  \`-\   \ |  o       "
 "                                                       |---\  \   `|  l       "
 "    Created: 2017/09/04 12:42:13 by cshepard6055       | ` .\  \   |  y       "
-"    Updated: 2019/12/07 20:13:34 by jeremy           |                 | Y    "
+"    Updated: 2021/11/19 10:37:16 by jeremy           |                 | Y    "
 "                                                                              "
 " **************************************************************************** "
 " Credit goes to Caleb Shepard for initial template
@@ -98,7 +98,7 @@ endfunction
 function! s:user()
 	let l:user = $USER
 	if strlen(l:user) == 0
-		let l:user = "student"
+		let l:user = "greatfox"
 	endif
 	return l:user
 endfunction
