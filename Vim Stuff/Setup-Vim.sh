@@ -9,8 +9,10 @@ VIMDIR="${HOME}/.vim"
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing Vim and Pathogen...${NC}"
 echo "--------------------------------------------------------------------------------------"
-sudo apt install vim -y mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
-curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+sudo apt install vim -y
+
+mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
+    curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 mkdir -p $VIMDIR/plugin
 mkdir -p $VIMDIR/colors
