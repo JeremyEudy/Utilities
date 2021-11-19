@@ -202,7 +202,10 @@ execute pathogen#helptags()
 filetype plugin indent on
 syntax on
 
-" PymodeLint settings
-let pymode_lint_ignore=["E501"]
-nnoremap <leader>c :PymodeLint<CR>
+" Pymode settings
+let pymode_lint_ignore=["E501"]     " Ignore line length warnings
+nnoremap <leader>c :PymodeLint<CR>  " Bind \c to run linter
+
+let pymode_run = 0
+nnoremap <leader>r :!python3 %  " Bind \r to run python as a different process to avoid locks
 " }}}
