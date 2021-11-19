@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    FreshInstall.sh                                  |     ___________ | J    #
+#    FreshInstall.sh                                                           #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:18:57 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2021/10/25 00:33:47 by jeremy           |                 | Y    #
+#    Updated: 2021/11/18 19:23:57 by jeremy                                    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -35,6 +35,8 @@ echo -e "${BLUE}Configuring utilities...${NC}"
 echo "--------------------------------------------------------------------------------------"
 mkdir -p $HOME/.ssh/
 mkdir -p $VIMDIR/plugin
+mkdir -p $VIMDIR/colors
+mkdir -p $VIMDIR/bundle
 cp $HOME/Utilities/Aesthetics/.screenrc $HOME/
 cp $HOME/Utilities/SSH/config $HOME/.ssh
 cp -r $HOME/Utilities/Vim\ Stuff/templates $VIMDIR/
@@ -48,6 +50,12 @@ echo -e "${BLUE}Installing Vim plugins...${NC}"
 echo "--------------------------------------------------------------------------------------"
 mkdir -p $VIMDIR/pack/NERDTree/start/
 git clone --depth 1 https://github.com/preservim/nerdtree.git $VIMDIR/pack/NERDTree/start/nerdtree
+git clone --recurse-submodules https://github.com/python-mode/python-mode $VIMDIR/bundle/python-mode
+git clone https://github.com/plasticboy/vim-markdown $VIMDIR/bundle/vim-markdown
+git clone https://github.com/onedark.vim $HOME/Git-Clones/onedark.vim
+cp $HOME/Git-Clones/onedark.vim/colors/onedark.vim $VIMDIR/colors/onedark.vim
+git clone https://github.com/vim-airline/vim-airline $VIMDIR/bundle/vim-airline
+git clone https://github.com/vim-airline/vim-airline-themes $VIMDIR/bundle/vim-airline-themes
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Would you like to install a blank Vim header?${NC}"
@@ -96,12 +104,13 @@ echo "--------------------------------------------------------------------------
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
 echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Installing CLI Search...${NC}"
+echo -e "${BLUE}Cloning Repos (CLISearch and Powerline Fonts)...${NC}"
 echo "--------------------------------------------------------------------------------------"
 mkdir $HOME/Git-Clones/
 cd $HOME/Git-Clones/
 
 git clone https://github.com/JeremyEudy/CLISearch/
+git clone https://github.com/powerline/fonts
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing pip...${NC}"

@@ -15,18 +15,22 @@ syntax enable
 set background=dark                             " dark background!
 if exists("$DISPLAY") " in X11
     set t_Co=256
+    let airline#extensions#tabline#enabled=1
+    let airline#extensions#tabline#formatter='default'
+    colorscheme onedark
+    " colorscheme ron
     " colorscheme monokai
     " colorscheme solarized
     " colorscheme jellybeans
-    " let airline_powerline_fonts=1
-    let airline_theme='tomorrow'
+    let airline_powerline_fonts=1
+    let airline_theme='onedark'
     " let airline_theme='badwolf'
     " let airline_theme='raven'
     " let airline_theme='jellybeans'
     " let airline_theme='molokai'
 else
     set t_Co=8
-    colorscheme zellner
+    " colorscheme ron
     let airline_powerline_fonts=0
 endif
 
@@ -103,6 +107,10 @@ cnoreabbrev tree NERDTree
 " }}}
 
 " *general* {{{
+set foldmethod=marker
+
+set nocp
+
 set virtualedit=block   " doesn't constrain visual block
 
 set history=10000       " big history (max)
@@ -140,6 +148,7 @@ filetype plugin indent on
 set timeoutlen=550      " time to wait after esc (default 1000 ... way too long)
 
 set fo-=o               " don't automatically insert comment after newline on commented line
+
 " }}}
 
 " *leader configuration for visual preferences* {{{
@@ -175,8 +184,15 @@ if has("autocmd")
 endif
 " }}}
 
-" vim: foldmethod=marker
+" *keywordprg mappings* {{{
+if has("autocmd")
+    augroup keywordprg
+        autocmd FileType markdown,rst,tex,txt setlocal keywordprg=dict
+        autocmd FileType python setlocal keywordprg=pydoc3
+    augroup end
+endif
+" }}}
 
-set nocp
+" *plugins* {{{
 execute pathogen#infect()
-execute pathogen#infect()
+" }}}
