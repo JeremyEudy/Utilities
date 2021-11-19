@@ -52,8 +52,9 @@ mkdir -p $VIMDIR/pack/NERDTree/start/
 git clone --depth 1 https://github.com/preservim/nerdtree.git $VIMDIR/pack/NERDTree/start/nerdtree
 git clone --recurse-submodules https://github.com/python-mode/python-mode $VIMDIR/bundle/python-mode
 git clone https://github.com/plasticboy/vim-markdown $VIMDIR/bundle/vim-markdown
-git clone https://github.com/onedark.vim $HOME/Git-Clones/onedark.vim
+git clone https://github.com/joshdick/onedark.vim $HOME/Git-Clones/onedark.vim
 cp $HOME/Git-Clones/onedark.vim/colors/onedark.vim $VIMDIR/colors/onedark.vim
+cp $HOME/Git-Clones/onedark.vim/autoload/onedark.vim $VIMDIR/autoload/onedark.vim
 git clone https://github.com/vim-airline/vim-airline $VIMDIR/bundle/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes $VIMDIR/bundle/vim-airline-themes
 
