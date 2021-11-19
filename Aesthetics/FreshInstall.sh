@@ -26,8 +26,7 @@ sudo apt install curl -y
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing Vim and Pathogen...${NC}"
 echo "--------------------------------------------------------------------------------------"
-sudo apt install vim -y
-mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
+sudo apt install vim -y mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
 curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "--------------------------------------------------------------------------------------"
@@ -82,15 +81,8 @@ echo "--------------------------------------------------------------------------
 echo -e "${BLUE}Installing tmux and .tmux.conf...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt install tmux -y
-tmuxVersion=`tmux -V`
-tmuxVersion=${tmuxVersion:4}
 
-if [ $tmuxVersion = "3.0a" ]
-then
-    cp $HOME/Utilities/tmux\ Stuff/.tmux.conf-3.0a $HOME/
-else
-    cp $HOME/Utilities/tmux\ Stuff/.tmux.conf $HOME/
-fi
+cp $HOME/Utilities/tmux\ Stuff/.tmux.conf $HOME/
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing ZShell...${NC}"
@@ -105,13 +97,29 @@ echo "--------------------------------------------------------------------------
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
 echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Configuring ZSH plugins...${NC}"
+echo "--------------------------------------------------------------------------------------"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Installing powerlevel10k for oh-my-zsh...${NC}"
+echo "--------------------------------------------------------------------------------------"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Copying .zshrc...${NC}"
+echo "--------------------------------------------------------------------------------------"
+cp $HOME/Utilities/ZSH/zshrc $HOME/.zshrc
+source $HOME/.zshrc
+
+echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Cloning Repos (CLISearch and Powerline Fonts)...${NC}"
 echo "--------------------------------------------------------------------------------------"
 mkdir $HOME/Git-Clones/
 cd $HOME/Git-Clones/
 
 git clone https://github.com/JeremyEudy/CLISearch/
-git clone https://github.com/powerline/fonts
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing pip...${NC}"
@@ -136,24 +144,8 @@ sudo apt install jq -y
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing powerline fonts...${NC}"
 echo "--------------------------------------------------------------------------------------"
-sudo apt install fonts-powerline -y
-
-echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Configuring ZSH plugins...${NC}"
-echo "--------------------------------------------------------------------------------------"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Installing powerlevel10k for oh-my-zsh...${NC}"
-echo "--------------------------------------------------------------------------------------"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Copying .zshrc...${NC}"
-echo "--------------------------------------------------------------------------------------"
-cp $HOME/Utilities/Aesthetics/.zshrc $HOME
-source $HOME/.zshrc
+git clone https://github.com/powerline/fonts $HOME/Git-Clones/powerline-fonts
+bash $HOME/Git-Clones/powerline-fonts
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Creating Xmodmap rule to make Caps Lock Escape...${NC}"
