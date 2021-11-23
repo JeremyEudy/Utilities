@@ -6,7 +6,7 @@
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:18:57 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2021/11/19 10:43:16 by jeremy           |                 | Y    #
+#    Updated: 2021/11/23 09:36:47 by jeremy           |                 | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -38,7 +38,7 @@ echo -e "${BLUE}Installing tmux and .tmux.conf...${NC}"
 echo "--------------------------------------------------------------------------------------"
 sudo apt install tmux -y
 
-cp $HOME/Utilities/tmux\ Stuff/.tmux.conf $HOME/
+cp $HOME/Utilities/tmux\ Stuff/tmux.conf $HOME/.tmux.conf
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Running Setup-ZSH.sh...${NC}"
