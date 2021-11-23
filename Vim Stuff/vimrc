@@ -203,9 +203,12 @@ filetype plugin indent on
 syntax on
 
 " Pymode settings
-let pymode_lint_ignore=["E501"]     " Ignore line length warnings
-nnoremap <leader>c :PymodeLint<CR>  " Bind \c to run linter
+let pymode_lint_ignore=["E501", "E127"]     " Ignore line length warnings and line split+length warnings
+
+" Bind \c to run linter
+nnoremap <leader>c :PymodeLint<CR>
 
 let pymode_run = 0
-nnoremap <leader>r :!python3 %  " Bind \r to run python as a different process to avoid locks
+" Bind \r to run python as a different process to avoid locks
+nnoremap <leader>r :!python3 %
 " }}}
