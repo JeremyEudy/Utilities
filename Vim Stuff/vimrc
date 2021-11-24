@@ -29,9 +29,12 @@ if exists("$DISPLAY") " in X11
     " let airline_theme='jellybeans'
     " let airline_theme='molokai'
 else
-    set t_Co=8
-    " colorscheme ron
-    let airline_powerline_fonts=0
+    set t_Co=256
+    colorscheme onedark
+    let airline#extensions#tabline#enabled=1
+    let airline#extensions#tabline#formatter='default'
+    let airline_powerline_fonts=1
+    let airline_theme='onedark'
 endif
 
 "set synmaxcol=256                               " limit syntax highlighting to 256 columns (default 1000)
