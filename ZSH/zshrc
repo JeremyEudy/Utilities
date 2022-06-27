@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    .zshrc                                           |     ___________ | J    #
+#    zshrc                                            |     ___________ | J    #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:21:19 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2021/10/25 00:34:23 by jeremy           |                 | Y    #
+#    Updated: 2022/06/27 13:34:24 by jeremy           |                 | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -15,13 +15,16 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 alias open="xdg-open"
-alias search="python3 ~/Git Clones/CLISearch/CLISearch.py"
 alias python="python3"
 alias pip="pip3"
 alias extip="curl -s 4.ipquail.com/ip"
 alias temp="watch -n 2 sensors"
 alias monitor="bash ~/.monitor.sh"
 alias pyenv="source venv/bin/activate"
+alias utc="python -c '
+import datetime
+print(f\"Time in UTC: {datetime.datetime.utcnow()}\")
+'"
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/$USER/.oh-my-zsh"
@@ -87,7 +90,16 @@ DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  ag
+  aliases
+  docker
+  docker-compose
   git
+  man
+  pip
+  python
+  web-search
+  zsh-interactive-cd
   zsh-syntax-highlighting
   zsh-autosuggestions
 )

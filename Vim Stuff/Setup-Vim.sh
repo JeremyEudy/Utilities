@@ -6,7 +6,7 @@
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2021/11/19 10:37:34 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2021/11/19 10:42:53 by jeremy           |                 | Y    #
+#    Updated: 2022/03/30 09:29:31 by jeremy           |                 | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -50,7 +50,6 @@ echo "--------------------------------------------------------------------------
 mkdir -p $VIMDIR/pack/NERDTree/start/
 git clone --depth 1 https://github.com/preservim/nerdtree.git $VIMDIR/pack/NERDTree/start/nerdtree
 git clone --recurse-submodules https://github.com/python-mode/python-mode $VIMDIR/bundle/python-mode
-git clone https://github.com/plasticboy/vim-markdown $VIMDIR/bundle/vim-markdown
 git clone https://github.com/joshdick/onedark.vim $HOME/Git-Clones/onedark.vim
 cp $HOME/Git-Clones/onedark.vim/colors/onedark.vim $VIMDIR/colors/onedark.vim
 cp $HOME/Git-Clones/onedark.vim/autoload/onedark.vim $VIMDIR/autoload/onedark.vim
