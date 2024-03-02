@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    FreshInstall.sh                                  |     ___________ | J    #
+#    FreshInstall.sh                                                           #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:18:57 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2021/11/23 09:36:47 by jeremy           |                 | Y    #
+#    Updated: 2024/03/02 16:30:41 by jeremy                                    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -124,6 +124,39 @@ if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
     echo -e "${BLUE}Skipping installation...${NC}"
 else
     sudo snap install spotify
+fi
+
+echo "--------------------------------------------------------------------------------------"
+echo -e "${BLUE}Would you like to install Docker (and compose)?${NC}"
+echo "--------------------------------------------------------------------------------------"
+read -p "[Y/n]"
+if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
+    echo -e "${BLUE}Skipping installation...${NC}"
+else
+    echo -e "${BLUE}Uninstalling conflicting packages...${NC}"
+    for pkg in docker.io docker-doc docker-compose podman-docker containerd runc
+        do sudo apt-get remove $pkg
+    done
+    echo -e "${BLUE}Adding Docker GPG Key${NC}"
+    sudo apt-get update
+    sudo apt-get install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    echo -e "${BLUE}Add repo to apt sources${NC}"
+    echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+
+    echo -e "${BLUE}Installing docker packages${NC}"
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+    echo -e "${BLUE}Installing docker-compose plugin${NC}"
+    sudo apt-get update
+    sudo apt-get install docker-compose-plugin
 fi
 
 echo "--------------------------------------------------------------------------------------"
