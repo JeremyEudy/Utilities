@@ -6,7 +6,7 @@
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2019/12/07 20:21:19 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2023/12/11 12:42:32 by jeremy           |                 | Y    #
+#    Updated: 2024/07/15 16:39:02 by jeremy           |                 | Y    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -28,6 +28,12 @@ print(f\"Time in UTC: {datetime.datetime.utcnow()}\")
 alias stop="bash /home/jeremy/Utilities/Helper/kill_shortcut.sh"
 alias update="bash /home/jeremy/Utilities/Helper/update_file.sh"
 alias master="gco master && gl"
+alias dl="docker-compose logs -f"
+alias drl="docker-compose down && docker-compose up -d && docker-compose logs -f"
+alias drb="docker-compose down && docker-compose up --build -d && docker-compose logs -f"
+alias dn="docker-compose down"
+alias de="docker-compose exec"
+alias dps="docker-compose ps"
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/$USER/.oh-my-zsh"
