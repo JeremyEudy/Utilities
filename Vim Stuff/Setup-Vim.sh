@@ -19,13 +19,7 @@ NC='\033[0m'
 
 VIMDIR="${HOME}/.vim"
 
-echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Installing Vim and Pathogen...${NC}"
-echo "--------------------------------------------------------------------------------------"
-sudo apt install vim -y
-
-mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
-    curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+mkdir -p $VIMDIR/autoload $VIMDIR/bundle
 
 mkdir -p $VIMDIR/plugin
 mkdir -p $VIMDIR/colors
@@ -33,16 +27,6 @@ mkdir -p $VIMDIR/bundle
 
 cp -r $HOME/Utilities/Vim\ Stuff/templates $VIMDIR/
 cp $HOME/Utilities/Vim\ Stuff/vimrc $HOME/.vimrc
-
-mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
-    curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-echo "--------------------------------------------------------------------------------------"
-echo -e "${BLUE}Installing powerline fonts...${NC}"
-echo "--------------------------------------------------------------------------------------"
-git clone https://github.com/powerline/fonts powerline-fonts && \
-    bash powerline-fonts/install.sh && \
-    rm -rf powerline-fonts
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing Vim plugins...${NC}"
