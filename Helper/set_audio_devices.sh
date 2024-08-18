@@ -23,6 +23,10 @@ do
             pactl set-default-sink ALVR\ Audio && \
                 pactl set-default-source ALVR\ Microphone
             ;;
+        tv)
+            pactl set-default-sink alsa_output.pci-0000_2f_00.1.hdmi-stereo-extra3 && \
+                pactl set-default-source alsa_input.usb-Corsair_Corsair_VOID_PRO_Wireless_Gaming_Headset-00.mono-fallback
+            ;;
         *)
             ;;
     esac
