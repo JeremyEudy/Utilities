@@ -1,4 +1,4 @@
-#!/usr/bin/expect -f
+#!/run/current-system/sw/bin/expect -f
 
 set MAC "70:F0:88:C1:E9:AB"
 set timeout 30
