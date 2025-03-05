@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
-#    Setup-Vim.sh                                     |     ___________ | J    #
+#    Setup-Vim.sh                                                              #
 #                                                     |    / ____/ ___/ | E    #
 #    By: jeremy <jeremyeudy@gmail.com>                |   / /_   \__ \  | R    #
 #                                                     |  / __/  ___/ /  | E    #
 #    Created: 2021/11/19 10:37:34 by jeremy           | /_/    /____/   | M    #
-#    Updated: 2022/03/30 09:29:31 by jeremy           |                 | Y    #
+#    Updated: 2025/03/05 10:48:43 by jeremy                                    #
 #                                                     -------------------      #
 #                                                                              #
 # **************************************************************************** #
@@ -29,13 +29,9 @@ mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
 
 mkdir -p $VIMDIR/plugin
 mkdir -p $VIMDIR/colors
-mkdir -p $VIMDIR/bundle
 
 cp -r $HOME/Utilities/Vim\ Stuff/templates $VIMDIR/
 cp $HOME/Utilities/Vim\ Stuff/vimrc $HOME/.vimrc
-
-mkdir -p $VIMDIR/autoload $VIMDIR/bundle && \
-    curl -LSso $VIMDIR/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Installing powerline fonts...${NC}"
@@ -69,8 +65,8 @@ fi
 echo "--------------------------------------------------------------------------------------"
 echo -e "${BLUE}Would you like to set Vim textwidth to 80?${NC}"
 echo "--------------------------------------------------------------------------------------"
-read -p "[Y/n]"
-if [[ "${REPLY}" = 'n' ]] || [[ "${REPLY}" = 'N' ]] ; then
+read -p "[y/N]"
+if [[ "${REPLY}" = 'y' ]] || [[ "${REPLY}" = 'Y' ]] ; then
     echo -e "${BLUE}Skipping...${NC}"
 else
     sed -i 's/" set textwidth=80/set textwidth=80/g' $HOME/.vimrc
