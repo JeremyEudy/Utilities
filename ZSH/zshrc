@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # **************************************************************************** #
 #                                                                              #
 #                                                     -------------------      #
@@ -25,15 +32,22 @@ alias utc="python -c '
 import datetime
 print(f\"Time in UTC: {datetime.datetime.utcnow()}\")
 '"
+alias fa="fixaudio"
+alias fixaudio="sudo headsetcontrol -s 100"
 alias stop="bash /home/jeremy/Utilities/Helper/kill_shortcut.sh"
 alias update="bash /home/jeremy/Utilities/Helper/update_file.sh"
 alias master="gco master && gl"
+
+alias docker-compose="docker compose"
 alias dl="docker-compose logs -f"
 alias drl="docker-compose down && docker-compose up -d && docker-compose logs -f"
 alias drb="docker-compose down && docker-compose up --build -d && docker-compose logs -f"
+alias dr="docker-compose down && docker-compose up -d"
 alias dn="docker-compose down"
 alias de="docker-compose exec"
 alias dps="docker-compose ps"
+
+alias greatfox="ssh -X jeremy@192.168.150.4"
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/$USER/.oh-my-zsh"
@@ -99,7 +113,6 @@ DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ag
   aliases
   docker
   docker-compose
@@ -143,6 +156,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Set LS_COLORS
+if [ -f ~/.ls_colors ]; then
+    LS_COLORS="$(cat ~/.ls_colors)"
+fi
 
 clear
 fortune | cowsay | lolcat
