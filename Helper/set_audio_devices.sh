@@ -4,7 +4,7 @@
 SPEAKERS="Starship/Matisse HD Audio Controller Analog Stereo"
 SPEAKERS_ID=$(wpctl status | grep "$SPEAKERS" | awk -F'.' '{print $1}' | awk '{print $NF}')
 
-MIXER_OUT="alsa_output.usb-Allen___Heath_ZEDi10-00.Recording__Line1__sink \[Audio/Sink\]"
+MIXER_OUT="ZEDi10 Direct ZEDi10"
 MIXER_OUT_ID=$(wpctl status | grep "$MIXER_OUT" | awk -F'.' '{print $1}' | awk '{print $NF}')
 
 MIC_IN="alsa_input.usb-Allen___Heath_ZEDi10-00.Recording__Mic2__source \[Audio/Source\]"
